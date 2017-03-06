@@ -293,8 +293,8 @@ public class MainActivity extends Activity {
     //set highscore if activity is destroyed
 
     protected void onDestroy() {
-        endGameScore();
-        endGameStreak();
+        checkHighScore();
+        setStreak();
         super.onDestroy();
     }
 
@@ -334,14 +334,14 @@ public class MainActivity extends Activity {
     }
 
     //compare session streak and previous longest streak
-    private void endGameStreak() {
+    private void setStreak() {
         if (streakFinal > prevStreak) {
             SaveStreak("Streak", streakFinal);
         }
     }
 
     //check for high score
-    private void endGameScore() {
+    private void checkHighScore() {
         if (mScore > prevHighScore) {
             SaveScore("HighScore", mScore);
         }
